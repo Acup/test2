@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.com.test.dao.TestDao">
+	<!-- 新增记录 -->
+	<insert id="insertTestModel" parameterType="cn.com.test.model.TestModel" useGeneratedKeys="true"
+		keyProperty="id">
+		insert into test(id,test_message) values(#{id},#{message})
+	</insert>
+	<!-- 查询单条记录 -->
+	<select id="selectTestModel" parameterType="int" resultType="cn.com.test.model.TestModel">
+		select * from test where id = #{id}
+	</select>
+	<!-- 修改记录 -->
+	<update id="updateTestModel" parameterType="String">
+		update test set test_message = #{message} where id = #{id}
+	</update>
+	<!-- 查询所有记录 -->
+	<select id="selectAll" resultType="cn.com.test.model.TestModel">
+		select * from test
+	</select>
+	<!-- 删除记录 -->
+	<delete id="deleteTestModel" parameterType="int">
+		delete from test where id = #{id}
+	</delete>
+
+</mapper>  
